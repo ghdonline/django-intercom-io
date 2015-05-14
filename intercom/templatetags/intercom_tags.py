@@ -11,7 +11,7 @@ register = template.Library()
 
 
 @register.inclusion_tag("intercom/_intercom_js.html")
-def intercom_js(user):
+def intercom_js(user, email=''):
     if hasattr(settings, "INTERCOM_APP_ID") and user.is_authenticated():
         if hasattr(settings, "INTERCOM_USER_HASH_KEY"):
             user_hash = hmac.new(settings.INTERCOM_USER_HASH_KEY, str(user.pk), hashlib.sha256).hexdigest()
@@ -25,7 +25,7 @@ def intercom_js(user):
 
         return {
             "app_id": settings.INTERCOM_APP_ID,
-            "email": user.email,
+            "email": email,
             "user_hash": user_hash,
             "user": user,
             "created_at": int(time.mktime(user.date_joined.timetuple())),
