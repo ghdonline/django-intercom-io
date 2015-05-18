@@ -103,7 +103,7 @@ def find_package_data(
     return out
 
 
-PACKAGE = "intercom"
+PACKAGE = "django_intercom"
 NAME = "django-intercom-io"
 DESCRIPTION = "a pluggable app for adding intercom.io to your website"
 AUTHOR = "James Tauber"
