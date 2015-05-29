@@ -28,6 +28,7 @@ def intercom_js(user, email=''):
             "email": email,
             "user_hash": user_hash,
             "user": user,
+            "name": user.get_full_name(),
             "created_at": int(time.mktime(user.date_joined.timetuple())),
             "custom_data": json.dumps(custom_data, ensure_ascii=False)
         }
